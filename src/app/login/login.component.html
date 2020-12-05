@@ -1,0 +1,66 @@
+<img class="img" >
+<div class="cotn_principal">
+  <div class="cont_centrar">
+  
+    <div class="cont_login">
+  <div class="cont_info_log_sign_up">
+        <div class="col_md_login">
+  <div class="cont_ba_opcitiy">
+          
+          <h2>LOGIN</h2>  
+    <p>Login to your account</p> 
+    <button class="btn_login" (click)="cambiar_login()">LOGIN</button>
+    </div>
+    </div>
+  <div class="col_md_sign_up">
+  <div class="cont_ba_opcitiy">
+    <h2>SIGN UP</h2>
+  
+    
+    <p>Register to get an account</p>
+  
+    <button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>
+  </div>
+    </div>
+         </div>
+  
+      
+      <div class="cont_back_info">
+         <div class="cont_img_back_grey">
+         <img src="../assets/Images/bg.jpg" alt="" />
+         </div>
+         
+      </div>
+  <div class="cont_forms" >
+      <div class="cont_img_back_">
+         <img src="../assets/Images/bg.jpg" alt="" />
+         </div>
+         <form [formGroup]="myForm" (ngSubmit)="Login()">
+   <div class="cont_form_login">
+  <a href="#" (click)="ocultar_login_sign_up()" ><fa-icon [icon]="faReplyAll"></fa-icon></a>
+     <h2>LOGIN</h2>
+   <input type="text" name="login" placeholder="Login" />
+  <input type="password" name="password" placeholder="Password" />
+  <button class="btn_login" (click)="cambiar_login()" >LOGIN</button>
+    </div>
+  </form>
+    <form [formGroup]="myForm" (ngSubmit)="addUser()" >
+     <div class="cont_form_sign_up">
+  <a href="#" (click)="ocultar_login_sign_up()"><fa-icon [icon]="faReplyAll"></fa-icon></a>
+       <h2>SIGN UP</h2>
+       
+   <input type="text" name="fullname" placeholder="Full Name" />
+  <input type="text" name="email" placeholder="Email" />
+  <input type="text" name="login" placeholder="Login" />
+  <input type="password" name="password" placeholder="Password" />
+  <input type="password" name="Rpassword" placeholder="Confirm Password" />
+  <button class="btn_sign_up"  (click)="cambiar_sign_up()">SIGN UP</button>
+
+    </div>
+  </form>
+      </div>
+  
+    </div>
+ 
+   </div>
+  </div>
