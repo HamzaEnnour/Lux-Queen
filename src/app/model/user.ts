@@ -3,6 +3,7 @@ export class User {
     full_name:string;
     email:string;
     login:string;
+    image:string;
     password:string;
     setId(id:number){
         this.id=id;
@@ -15,6 +16,9 @@ export class User {
     }
     setLogin(log: string){
         this.login=log;
+    }
+    setImage(im: string){
+        this.image=im;
     }
     setPassword(pass: string){
         this.password=pass;

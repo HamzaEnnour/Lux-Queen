@@ -10,6 +10,10 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductComponent } from './product/product.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfilComponent } from './profil/profil.component';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     AcceuilComponent,
     NotFoundComponent,
+    ProductComponent,
+    RegisterComponent,
+    ProfilComponent,
+    SingleProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+   font-family: 'Trispace', sans-serif;    width: 100%;
+}
+h1 {
+    padding-left: 2rem;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+}
+h2 {
+    font-size:  4rem;
+    font-weight: 500;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.main section {
+    width: 45%;
+}
+.img {
+    margin: auto;
+}
+.img img{
+    width: 100%;
+}
+.main .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 10%;
+}
+.main .text p {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.main .text button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 0.8rem;
+    width: 30%;
+    height: 3rem;
+    width: 8rem;
+    align-self: flex-start;
+    color: white;
+    background-color: rgb(37, 16, 58)
+}
+
+/*MEDIA QUERIES: iPad, Tablet...*/
+
+@media (max-width:1024px){
+    
+    h2 {
+        font-size: 2rem;
+    }
+    .main .text p {
+        font-size: 1.3rem;
+    }
+    
+}
+
+
+/*MEDIA QUERIES: Blackberry, MotoG4...*/
+
+@media (max-width:700px){
+  
+    .main {
+        flex-direction: column;
+    }
+    .main .text {
+        align-self: center;
+        padding: 0;
+    }
+    .main section {
+        width: 80%;
+    }
+    h1,h2, .main .text p {
+        text-align: center;
+        padding: 0;
+        margin-top:1rem;
+    }
+    button{
+        margin: 1rem  auto;
+    }
+}

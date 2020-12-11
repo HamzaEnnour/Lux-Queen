@@ -1,39 +1,38 @@
 {
   "Users": [
     {
-      "id": 1,
       "full_name": "Hamza Ennour",
       "login": "hamza",
+      "image": "hamza.png",
       "email": "hamza.ennour@esprit.tn",
-      "password": "123"
+      "password": "12345678",
+      "id": 1
     },
     {
-      "id": 2,
-      "full_name": "Taha Jamali",
-      "login": "taha",
-      "email": "taha.jamali@esprit.tn",
-      "password": "123"
+      "full_name": "aze",
+      "login": "aze",
+      "image": "hero-3-bg-1.jpg",
+      "email": "hamza.ennour@esprit.tn",
+      "password": "12345678",
+      "id": 2
+    }
+  ],
+  "Products": [
+    {
+      "name": "Hamza Ennour",
+      "description": "description",
+      "image": "product-1.png",
+      "price": 50,
+      "quantity": 5,
+      "id": 1
     },
     {
-      "id": 3,
-      "full_name": "Omar Jmai",
-      "login": "omar",
-      "email": "omar.jmai@esprit.tn",
-      "password": "123"
-    },
-    {
-      "id": 4,
-      "full_name": "Sofien Argoubi",
-      "login": "sofien",
-      "email": "sofien.argoubi@esprit.tn",
-      "password": "123"
-    },
-    {
-      "id": 5,
-      "full_name": "Mohamed Derbali",
-      "login": "mohamed",
-      "email": "mohamed.derbali@esprit.tn",
-      "password": "123"
+      "name": "test",
+      "description": "description",
+      "image": "product-2.png",
+      "price": 70,
+      "quantity": 0,
+      "id": 2
     }
   ]
 }

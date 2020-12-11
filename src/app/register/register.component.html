@@ -1,0 +1,62 @@
+<!-- Register Section Start -->
+<div class="register-section section mt-90 mb-90">
+    <div class="container">
+        <form [formGroup]="myForm" (ngSubmit)="addUser()">
+        <div class="row">
+            
+            <!-- Register -->
+            <div class="col-md-6 col-12 d-flex">
+                <div class="ee-register">
+                    
+                    <h3>We will need for your registration</h3>
+                    
+                    <!-- Register Form -->
+                    
+                        <div class="row">
+                            <div class="col-12 mb-30"><input type="text" name="fullname" formControlName="fullname"  placeholder="Your Full Name here"></div>
+                            <div class="col-12 mb-30"> <div *ngIf="fullnameUser.invalid" [style.color]="'red'">Full Name is required.</div></div>
+                            <div class="col-12 mb-30"><input type="email" email name="email" formControlName="email" placeholder="Your Email here"></div>
+                            <div class="col-12 mb-30"> <div *ngIf="emailUser.invalid" [style.color]="'red'">Email is required.</div></div>
+                            <div class="col-12 mb-30"><input type="text" name="login" formControlName="login"  placeholder="Your Login here"></div>
+                            <div class="col-12 mb-30"> <div *ngIf="loginUser.invalid" [style.color]="'red'">Login is required.</div></div>
+                            <div class="col-12 mb-30"><input type="password" name="password" formControlName="password" placeholder="Enter Password"></div>
+                            <div class="col-12 mb-30"> <div *ngIf="passwordUser.invalid" [style.color]="'red'">Password is required.</div></div>
+                            <div class="col-12 mb-30"><input type="password" name="Rpassword" formControlName="Rpassword" placeholder="Confirm Password"></div>
+                            <div class="col-12 mb-30"> <div *ngIf="RpasswordUser.invalid" [style.color]="'red'">Confirm password is required.</div></div>
+                            <div class="col-12"><input type="submit" value="Register"></div>
+                        </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="col-md-1 col-12 d-flex">
+                
+                <div class="login-reg-vertical-boder"></div>
+                
+            </div>
+            
+            <!-- Account Image -->
+            <div class="col-md-5 col-12 d-flex">
+                
+                <div class="ee-account-image">
+                    <h3>Upload your Image</h3>
+                    
+                  <!--  <img src="assets/images/account-image-placeholder.jpg" alt="Account Image Placeholder" class="image-placeholder">-->
+                    
+                    <div class="account-image-upload">
+                        <input type="file" name="image" formControlName="image" (change)="UpdateImage()"  id="account-image-upload">
+                        <label class="account-image-label" for="account-image-upload">{{filename}}</label>
+                    </div>
+
+
+                    <p>jpEG 250x250</p>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    </form>
+    </div>
+</div><!-- Register Section End -->

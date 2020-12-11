@@ -1,3 +1,4 @@
+import { UserServiceService } from './service/user-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProjAngularCC';
+  constructor(private Us: UserServiceService) { }
+
+  isLogged(): boolean {
+     return this.Us.isLoggedin();
+  }
+  DoLogOut() {
+    this.Us.logout();
+  }
 }

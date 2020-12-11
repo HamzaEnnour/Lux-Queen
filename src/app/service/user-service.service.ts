@@ -1,5 +1,5 @@
 import { User } from './../model/user';
-import {  HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
@@ -9,8 +9,6 @@ import { CastExpr } from '@angular/compiler';
 })
 export class UserServiceService {
   UsersUrl: string = 'http://localhost:3000/users';
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -27,41 +25,38 @@ export class UserServiceService {
     return throwError('Something bad happened; please try again later.');
   }
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
-   }
+  }
   private extractData(res: Response) {
     let body = res;
-    return body || { };
+    return body || {};
   }
-  getUsers(): Observable<any>  {
-    return this.http.get(this.UsersUrl, this.httpOptions).pipe(
-      map(this.extractData),
-      catchError(this.handleError));
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.UsersUrl, this.httpOptions);
   }
-  addUser(user: User): Observable<any> {
+  addUser(user: User): Observable<User> {
     console.log(user);
-    return this.http.post(this.UsersUrl, user, this.httpOptions).pipe(
-      map(this.extractData),
-      catchError(this.handleError));
+    return this.http.post<User>(this.UsersUrl, user, this.httpOptions);
   }
-  findbyId(id: number): Observable<any> {
-    return this.http.get<any>(this.UsersUrl + '/' + id);
+  findbyId(id: number): Observable<User> {
+    return this.http.get<User>(this.UsersUrl + '/' + id);
+  }
+  updateUser(id: number, user: User): Observable<User> {
+    return this.http.put<User>(this.UsersUrl + '/' + id, user, this.httpOptions);
     }
+  login(login: string, password: string): Observable<User> {
+    return this.http.get<User>(`${this.UsersUrl}/?login=${login}&password=${password}`);
+  }
 
-    login(login: string, password: string) {
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-      let body = JSON.stringify({login: login,
-        password: password});
-        var requestOptions = new requestOptions({                    
-          headers: headers,
-          body: JSON.stringify({login: login,
-            password: password})
-      })
-      return this.http.get<any>(this.UsersUrl ,requestOptions);
+  logout() {
+    localStorage.removeItem('CurrentUser');
+  }
+  isLoggedin(): boolean {
+    var user = JSON.parse(localStorage.getItem('CurrentUser'));
+    if (user!=null) {
+      return true;
     }
-    logout() {
-      localStorage.removeItem('currentUser');
-      this.currentUserSubject.next(null);
-    }
+    else
+      return false;
+  }
+
 }

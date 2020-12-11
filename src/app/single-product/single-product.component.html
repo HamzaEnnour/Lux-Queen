@@ -1,0 +1,104 @@
+<!-- Single Product Section Start -->
+<div class="product-section section mt-90 mb-90">
+    <div class="container">
+        
+        <div class="row mb-90">
+                    
+            <div class="col-lg-6 col-12 mb-50">
+
+                <!-- Image -->
+                <div class="single-product-image thumb-right">
+
+                    <div class="tab-content">
+                        <div id="single-image-1" class="tab-pane fade show active big-image-slider"> 
+                            <div class="big-image"><img src="../../assets/Images/product/{{img}}" alt="Big Image"><a href="../../assets/Images/product/{{img}}" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
+                        </div>
+                        
+                    </div>
+                    
+
+                </div>
+
+            </div>
+                    
+            <div class="col-lg-6 col-12 mb-50">
+
+                <!-- Content -->
+                <div class="single-product-content">
+
+                    <!-- Category & Title -->
+                    <div class="head-content">
+
+                        <div class="category-title">
+                            <a href="#" class="cat">Beauté</a>
+                            <h5 class="title">{{name}}</h5>
+                        </div>
+
+                        <h5 class="price">${{price}}</h5>
+
+                    </div>
+
+                    <div class="single-product-description">
+
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+
+                        <div class="desc">
+                            <p>{{desc}}</p>
+                        </div>
+                        
+                        <span class="availability">Availability: <span [ngStyle]="{'color' : ability=='In Stock' ? 'green' : 'red'}" >{{ability}}</span></span>
+                        
+                        <div class="quantity-colors">
+                            
+                            <div class="quantity">
+                                <h5>Quantity</h5>
+                                <div class="pro-qty" ><input type="text" id="qua" [disabled]="quan=='0'"  value="{{quan}}"></div>
+                            </div>                            
+                                                    
+                            
+                        </div> 
+
+                        <div class="actions">
+
+                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+
+                            <div class="wishlist-compare">
+                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
+                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
+                            </div>
+
+                        </div>
+                        
+                        <div class="tags">
+                            
+                            <h5>Tags:</h5>
+                            <a >Beauté</a>
+                            
+                        </div>
+                        
+                        <div class="share">
+                            
+                            <h5>Share: </h5>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+        
+    </div>
+</div><!-- Single Product Section End -->
