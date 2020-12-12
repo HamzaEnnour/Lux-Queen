@@ -1,0 +1,60 @@
+<!-- Cart Page Start -->
+<div class="page-section section pt-90 pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="#">				
+                    <!-- Cart Table -->
+                    <div class="cart-table table-responsive mb-40">
+                        <table class="table">
+                            <thead>
+                                <tr >
+                                    <th class="pro-thumbnail">Image</th>
+                                    <th class="pro-title">Product</th>
+                                    <th class="pro-price">Price</th>
+                                    <th class="pro-quantity">Quantity</th>
+                                    <th class="pro-subtotal">Total</th>
+                                    <th class="pro-remove">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cart of cart">
+                                    <td class="pro-thumbnail"><a href="#"><img src="../../assets/Images/product/{{cart.prod.image}}" alt="Product"></a></td>
+                                    <td class="pro-title"><a>{{cart.prod.name}}</a></td>
+                                    <td class="pro-price"><span>${{cart.prod.price}}</span></td>
+                                    <td class="pro-quantity"><div class="pro-qty"><input type="text"  value="{{cart.quantity}}"></div></td>
+                                    <td class="pro-subtotal"><span>${{cart.total}}</span></td>
+                                    <td class="pro-remove"><a (click)="Delete(cart.id)" ><i class="fa fa-trash-o"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </form>	
+                    
+                <div class="row">
+
+                   
+                    <!-- Cart Summary -->
+                    <div class="col-lg-12 col-12 mb-40 d-flex">
+                        <div class="cart-summary">
+                            <div class="cart-summary-wrap">
+                                <h4>Cart Summary</h4>
+                                <p>Sub Total <span>${{tot}}</span></p>
+                                <p>Shipping Cost <span>$00.00</span></p>
+                                <h2>Grand Total <span>${{tot}}</span></h2>
+                            </div>
+                            <div class="cart-summary-button">
+                                <button class="checkout-btn">Checkout</button>
+                               <!-- <button class="update-btn">Update Cart</button>-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart Page End --> 

@@ -58,7 +58,7 @@
                             
                             <div class="quantity">
                                 <h5>Quantity</h5>
-                                <div class="pro-qty" ><input type="text" id="qua" [disabled]="quan=='0'"  value="{{quan}}"></div>
+                                <div class="pro-qty" ><input type="text" id="qua" [disabled]="quan=='0'"  [(ngModel)]="quan"></div>
                             </div>                            
                                                     
                             
@@ -66,11 +66,11 @@
 
                         <div class="actions">
 
-                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+                            <a (click)="addToCart()" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
 
                             <div class="wishlist-compare">
-                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
+                               <!-- <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>-->
+                                <a (click)="addToWishlist()" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                             </div>
 
                         </div>
@@ -99,6 +99,19 @@
             </div>
             
         </div>
+        <form >
+            <div class="form-group">
+              <label for=""></label>
+            <textarea class="form-control" name="description" [(ngModel)]="description" placeholder="Que pensez vous ....."></textarea>
+         
+            </div>
+        <div class="form-group">
+        <button  style=" background:none;" (click)="addComment()" class="btn btn-warning"><i class="ti-comments"></i><span>&nbsp;Commentez</span></button>
+        </div>
         
+        </form>
+        <app-comment  [selected]="temp" [Com]="Comm" ></app-comment>
     </div>
+    
 </div><!-- Single Product Section End -->
+

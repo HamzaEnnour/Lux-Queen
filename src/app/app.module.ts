@@ -14,6 +14,9 @@ import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfilComponent } from './profil/profil.component';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { CartComponent } from './cart/cart.component';
+import { CommentComponent } from './comment/comment.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { SingleProductComponent } from './single-product/single-product.componen
     RegisterComponent,
     ProfilComponent,
     SingleProductComponent,
+    CartComponent,
+    CommentComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

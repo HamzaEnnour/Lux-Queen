@@ -36,6 +36,7 @@ get passwordUser() { return this.myForm.get('password');}
       if (Object.keys(this.user).length > 0) {
         localStorage.setItem('CurrentUser', JSON.stringify(this.user));
     alert('User Logged in!');
+    this.router.navigateByUrl('/');
       }
       else {
         alert('Check your field!');

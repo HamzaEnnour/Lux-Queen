@@ -1,3 +1,16 @@
+
+<div class="col-12 col-md-4">
+    <!-- Header Advance Search Start -->
+    <div class="header-advance-search">
+        
+        <form action="#">
+            <div class="input"><input type="text" placeholder="Search your product"></div>
+            
+            <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
+        </form>
+        
+    </div><!-- Header Advance Search End -->
+</div>
 <!-- Product Section Start -->
 <div class="product-section section mt-90 mb-90">
     <div class="container">
@@ -34,9 +47,6 @@
                                 <p>Short by</p>
                                 <select name="sortby" class="nice-select">
                                     <option value="trending">Trending items</option>
-                                    <option value="sales">Best sellers</option>
-                                    <option value="rating">Best rated</option>
-                                    <option value="date">Newest items</option>
                                     <option value="price-asc">Price: low to high</option>
                                     <option value="price-desc">Price: high to low</option>
                                 </select>
@@ -68,11 +78,11 @@
                                 <a [routerLink]="['/single-product',prod.id]" class="img"><img src="../../assets/Images/product/{{prod.image}}" alt="Product Image"></a>
 
                                 <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
+                                 <!--   <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>-->
+                                    <a (click)="addToWishlist(prod)" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                 </div>
 
-                                <a href="#" class="add-to-cart" *ngIf="!isOutOfStock(prod.quantity)"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+                                <a (click)="addToCart(prod)" class="add-to-cart" *ngIf="!isOutOfStock(prod.quantity)"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
 
                             </div>
 

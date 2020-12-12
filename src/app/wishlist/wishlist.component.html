@@ -1,0 +1,38 @@
+<!-- Cart Page Start -->
+<div class="page-section section mt-90 mb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="#">				
+                    <div class="cart-table table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="pro-thumbnail">Image</th>
+                                    <th class="pro-title">Product</th>
+                                    <th class="pro-price">Price</th>
+                                    <th class="pro-quantity">Quantity</th>
+                                    <th class="pro-subtotal">Cart</th>
+                                    <th class="pro-remove">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let wh of wishlist">
+                                    <td class="pro-thumbnail"><a href="#"><img src="../../assets/Images/product/{{wh.prod.image}}" alt="Product"></a></td>
+                                    <td class="pro-title"><a href="#">{{wh.prod.name}}</a></td>
+                                    <td class="pro-price"><span>${{wh.prod.price}}</span></td>
+                                    <td class="pro-quantity"><div class="pro-qty"><input type="text" value="{{wh.quantity}}"></div></td>
+                                    <td class="pro-addtocart"><button>add to cart</button></td>
+                                    <td class="pro-remove"><a (click)="Delete(wh.id)"><i class="fa fa-trash-o"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </form>	
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart Page End --> 

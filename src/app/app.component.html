@@ -40,7 +40,7 @@
                         <a [routerLink]="['/profil']" *ngIf="isLogged()" ><i class="icofont icofont-user-alt-7"></i> <span>my account</span></a>
                         <a [routerLink]="['/register']" *ngIf="!isLogged()"  ><i class="icofont icofont-login d-none"></i> <span>Register</span></a>
                         <a [routerLink]="['/login']" *ngIf="!isLogged()"  ><i class="icofont icofont-login d-none"></i> <span>Login</span></a>
-                        <a [routerLink]="['/acceuil']" *ngIf="isLogged()" (click)="DoLogOut()" ><i class="icofont icofont-login d-none"></i> <span>LogOut</span></a>
+                        <a [routerLink]="['/']" *ngIf="isLogged()" (click)="DoLogOut()" ><i class="icofont icofont-login d-none"></i> <span>LogOut</span></a>
                     </div><!-- Header Account Links End -->
                 </div>
 
@@ -93,12 +93,12 @@
                     <!-- Header Shop Links Start -->
                     <div class="header-shop-links">
                         
-                        <!-- Compare -->
-                        <a href="compare.html" class="header-compare"><i class="ti-control-shuffle"></i></a>
+                        <!-- Compare 
+                        <a href="compare.html" class="header-compare"><i class="ti-control-shuffle"></i></a> -->
                         <!-- Wishlist -->
-                        <a href="wishlist.html" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
+                        <a [routerLink]="['/wishlist']" class="header-wishlist"><i class="ti-heart"></i> <span class="number">{{_length2}}</span></a>
                         <!-- Cart -->
-                        <a href="cart.html" class="header-cart"><i class="ti-shopping-cart"></i> <span class="number">3</span></a>
+                        <a [routerLink]="['/cart']" class="header-cart"><i class="ti-shopping-cart"></i> <span class="number">{{_length}}</span></a>
                         
                     </div><!-- Header Shop Links End -->
                 </div>

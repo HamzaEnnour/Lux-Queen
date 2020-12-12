@@ -1,0 +1,32 @@
+
+
+<div class="comments-app"id="scr" >
+    <!-- Comments List -->
+    <div class="comments" *ngFor="let com of Com">
+      <!-- Comment -->
+      <div class="comment"  >
+        <!-- Comment Avatar -->
+        <div class="comment-avatar">
+          <img src="../../assets/Images/{{com.user.image}}">
+        </div>
+  
+        <!-- Comment Box -->
+        <div class="comment-box">
+          <div class="comment-text">{{com.description}}</div>
+          <div class="comment-footer">
+            <div class="comment-info">
+              <span class="comment-author">
+                
+                <a >{{com.user.full_name}}</a>
+              </span>
+              <span class="comment-date">12/11/2020</span>
+            </div>
+  
+            <div class="comment-actions" *ngIf="com.user.id==idUser">
+              <a (click)="Delete(com.id)">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>

@@ -1,3 +1,5 @@
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { CartComponent } from './cart/cart.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { ProfilComponent } from './profil/profil.component';
 import { RegisterComponent } from './register/register.component';
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'wishlist', component: WishlistComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: '**', component: NotFoundComponent }
 ];
