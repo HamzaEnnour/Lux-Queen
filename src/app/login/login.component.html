@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <!-- Login Section Start -->
 <div class="login-section section mt-90 mb-90">
   <div class="container">
@@ -13,7 +14,9 @@
                   <form [formGroup]="myForm" (ngSubmit)="Login()">
                       <div class="row">
                           <div class="col-12 mb-30"><input type="text" name="login" formControlName="login" placeholder="Type your login"></div>
+                          <div class="col-12 mb-30"> <div *ngIf="loginUser.invalid" [style.color]="'red'">Login is required.</div></div>
                           <div class="col-12 mb-20"><input type="password" name="password" formControlName="password" placeholder="Enter your password"></div>
+                          <div class="col-12 mb-30"> <div *ngIf="passwordUser.invalid" [style.color]="'red'">Password is required.</div></div>
                           <div class="col-12 mb-15">
                               
                               <input type="checkbox" id="remember_me">
@@ -53,3 +56,4 @@
       </div>
   </div>
 </div><!-- Login Section End -->
+<notifier-container></notifier-container>

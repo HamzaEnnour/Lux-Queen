@@ -8,7 +8,7 @@ import { Wishlist } from '../model/wishlist';
   providedIn: 'root'
 })
 export class WishlistService {
-  CartsUrl: string = 'http://localhost:3000/wishlist';
+  WishlistUrl: string = 'http://localhost:3000/wishlist';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -31,14 +31,17 @@ export class WishlistService {
     return body || {};
   }
   getWishlists(): Observable<Wishlist[]> {
-    return this.http.get<Wishlist[]>(this.CartsUrl, this.httpOptions);
+    return this.http.get<Wishlist[]>(this.WishlistUrl, this.httpOptions);
+  }
+  findWishlistbyId(id: number): Observable<Wishlist[]> {
+    return this.http.get<Wishlist[]>(this.WishlistUrl + '/' + id);
   }
   addWishlist(user: Wishlist): Observable<Wishlist> {
     console.log(user);
-    return this.http.post<Wishlist>(this.CartsUrl, user, this.httpOptions);
+    return this.http.post<Wishlist>(this.WishlistUrl, user, this.httpOptions);
   }
   deleteWishlist(id: number): Observable<any> {
-    const url = this.CartsUrl + '/' + id;
+    const url = this.WishlistUrl + '/' + id;
     return this.http.delete(url).pipe(
       map(this.extractData),
       catchError(this.handleError));;

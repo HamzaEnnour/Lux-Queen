@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <!-- Register Section Start -->
 <div class="register-section section mt-90 mb-90">
     <div class="container">
@@ -16,14 +17,18 @@
                             <div class="col-12 mb-30"><input type="text" name="fullname" formControlName="fullname"  placeholder="Your Full Name here"></div>
                             <div class="col-12 mb-30"> <div *ngIf="fullnameUser.invalid" [style.color]="'red'">Full Name is required.</div></div>
                             <div class="col-12 mb-30"><input type="email" email name="email" formControlName="email" placeholder="Your Email here"></div>
-                            <div class="col-12 mb-30"> <div *ngIf="emailUser.invalid" [style.color]="'red'">Email is required.</div></div>
+                            <div class="col-12 mb-30"> 
+                                <div *ngIf="emailUser.errors.required" [style.color]="'red'">Email is required.</div>
+                                <div *ngIf="emailUser.errors.pattern" [style.color]="'red'">Choose a good format for Email field</div>
+                        </div>
                             <div class="col-12 mb-30"><input type="text" name="login" formControlName="login"  placeholder="Your Login here"></div>
-                            <div class="col-12 mb-30"> <div *ngIf="loginUser.invalid" [style.color]="'red'">Login is required.</div></div>
+                            <div class="col-12 mb-30"> <div *ngIf="loginUser.errors.required" [style.color]="'red'">Login is required.</div></div>
                             <div class="col-12 mb-30"><input type="password" name="password" formControlName="password" placeholder="Enter Password"></div>
-                            <div class="col-12 mb-30"> <div *ngIf="passwordUser.invalid" [style.color]="'red'">Password is required.</div></div>
+                            <div class="col-12 mb-30"> <div *ngIf="passwordUser.errors.required" [style.color]="'red'">Password is required.</div></div>
                             <div class="col-12 mb-30"><input type="password" name="Rpassword" formControlName="Rpassword" placeholder="Confirm Password"></div>
-                            <div class="col-12 mb-30"> <div *ngIf="RpasswordUser.invalid" [style.color]="'red'">Confirm password is required.</div></div>
-                            <div class="col-12"><input type="submit" value="Register"></div>
+                            <div class="col-12 mb-30"> <div *ngIf="RpasswordUser.errors.required" [style.color]="'red'">Confirm password is required.</div></div>
+                            <div class="col-12"><input  type="submit" id="tt"  value="Register"></div>
+
                         </div>
                     
                     
@@ -45,7 +50,7 @@
                   <!--  <img src="assets/images/account-image-placeholder.jpg" alt="Account Image Placeholder" class="image-placeholder">-->
                     
                     <div class="account-image-upload">
-                        <input type="file" name="image" formControlName="image" (change)="UpdateImage()"  id="account-image-upload">
+                        <input type="file" name="image" formControlName="image" (change)="UpdateImage($event)"  id="account-image-upload">
                         <label class="account-image-label" for="account-image-upload">{{filename}}</label>
                     </div>
 
@@ -60,3 +65,4 @@
     </form>
     </div>
 </div><!-- Register Section End -->
+<notifier-container></notifier-container>

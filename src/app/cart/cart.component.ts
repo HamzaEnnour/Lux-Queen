@@ -1,4 +1,4 @@
-import { CartService } from './../service/cart.service';
+import { CartService } from '../shared/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../model/cart';
 import * as $ from 'jquery';
@@ -11,7 +11,9 @@ import * as $ from 'jquery';
 export class CartComponent implements OnInit {
   cart: Cart[]
   tot:number=0;
-
+  Cnumber: number;
+  Tempuser = JSON.parse(localStorage.getItem('CurrentUser'));
+  
 
   constructor(private Cs: CartService) { 
    
@@ -22,7 +24,7 @@ export class CartComponent implements OnInit {
 
     this.Cs.getCarts().subscribe(
       (data: any[]) => {
-        this.cart = data;
+        this.cart = data.filter(x=>x.user.id==this.Tempuser[0].id);
         this.cart.forEach(e=>{this.tot+=e.total})
       });   
   }
@@ -32,7 +34,11 @@ export class CartComponent implements OnInit {
   Delete(c: number) {
     this.Cs.deleteCart(c).subscribe(res => {
       this.Cs.getCarts().subscribe((data: any[]) => {
-        this.cart = data;
+        this.cart = data.filter(x=>x.user.id==this.Tempuser[0].id);
+        if(data.length==0)
+        this.Cnumber=0;
+
+        this.Cnumber=data.length
        
       });
                });

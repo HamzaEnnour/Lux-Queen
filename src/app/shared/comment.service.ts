@@ -1,4 +1,4 @@
-import { Comment } from './../model/comment';
+import { Comment } from '../model/comment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';

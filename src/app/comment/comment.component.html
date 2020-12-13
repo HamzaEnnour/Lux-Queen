@@ -1,5 +1,4 @@
 
-
 <div class="comments-app"id="scr" >
     <!-- Comments List -->
     <div class="comments" *ngFor="let com of Com">
@@ -19,7 +18,7 @@
                 
                 <a >{{com.user.full_name}}</a>
               </span>
-              <span class="comment-date">12/11/2020</span>
+              <span class="comment-date">{{Today | date}}</span>
             </div>
   
             <div class="comment-actions" *ngIf="com.user.id==idUser">

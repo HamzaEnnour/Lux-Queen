@@ -1,0 +1,99 @@
+<div class="header-section section">
+
+    <!-- Header Top Start -->
+    <div class="header-top header-top-one header-top-border pt-10 pb-10">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col mt-10 mb-10" >
+                    <div *ngIf="isLogged()" [ngStyle]="{'color' : 'black'}">
+              <i class="ti-face-smile"></i>  {{Tempuser[0].full_name}} <i class="ti-face-smile"></i></div>  
+                </div>
+
+                <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
+                   
+                    <div class="header-advance-search">
+                            <div class="input"><input type="text" (keyup)="DoSearch()" [(ngModel)]="ss" placeholder="Search your product"></div>
+                             <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
+                        
+                    
+                   </div> 
+                </div>
+
+                <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10">
+                    <!-- Header Account Links Start -->
+                    <div class="header-account-links">
+                        <a [routerLink]="['/profil']" *ngIf="isLogged()" ><i class="icofont icofont-user-alt-7"></i> <span>my account</span></a>
+                        <a [routerLink]="['/register']" *ngIf="!isLogged()"  ><i class="icofont icofont-login d-none"></i> <span>Register</span></a>
+                        <a [routerLink]="['/login']" *ngIf="!isLogged()"  ><i class="icofont icofont-login d-none"></i> <span>Login</span></a>
+                        <a [routerLink]="['/']" *ngIf="isLogged()" (click)="DoLogOut()" ><i class="icofont icofont-login d-none"></i> <span>LogOut</span></a>
+                    </div><!-- Header Account Links End -->
+                </div>
+
+            </div>
+        </div>
+    </div><!-- Header Top End -->
+
+    <!-- Header Bottom Start -->
+    <div class="header-bottom header-bottom-one header-sticky">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col mt-15 mb-15">
+                    <!-- Logo Start
+                    <div class="header-logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                            <img class="theme-dark" src="assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                        </a>
+                    </div> Logo End -->
+                </div>
+
+                <div class="col order-12 order-lg-2 order-xl-2 d-none d-lg-block">
+                    <!-- Main Menu Start -->
+                    <div class="main-menu">
+                        <nav>
+                            <ul>
+                                <li class="active"><a [routerLink]="['/']">HOME</a></li>
+                                <li ><a [routerLink]="['/product']">Shop</a>
+                                   <!-- <ul class="sub-menu">
+                                        <li class="menu-item-has-children"><a href="shop-grid.html">shop grid</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="shop-grid.html">shop grid</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="single-product.html">Single Product</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="single-product.html">Single Product 1</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>-->
+                                </li>
+                                
+                            </ul>
+                        </nav>
+                    </div><!-- Main Menu End -->
+                </div>
+
+                <div class="col order-2 order-lg-12 order-xl-12">
+                    <!-- Header Shop Links Start -->
+                    <div class="header-shop-links">
+                        
+                        <!-- Compare 
+                        <a href="compare.html" class="header-compare"><i class="ti-control-shuffle"></i></a> -->
+                        <!-- Wishlist -->
+                        <a [routerLink]="['/wishlist']" *ngIf="isLogged()" class="header-wishlist"><i class="ti-heart"></i> <span class="number">{{wishnumber}}</span></a>
+                        <!-- Cart -->
+                        <a [routerLink]="['/cart']" *ngIf="isLogged()" class="header-cart"><i class="ti-shopping-cart"></i> <span class="number">{{cartnumber}}</span></a>
+                        
+                    </div><!-- Header Shop Links End -->
+                </div>
+                
+                <!-- Mobile Menu -->
+                <div class="mobile-menu order-12 d-block d-lg-none col"></div>
+
+            </div>
+        </div>
+    </div><!-- Header Bottom End -->
+
+</div><!-- Header Section End -->

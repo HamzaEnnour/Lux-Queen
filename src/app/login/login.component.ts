@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { faFeather, faReplyAll } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../service/user-service.service';
+import { UserServiceService } from '../shared/user-service.service';
 import { first } from 'rxjs/operators';
+import { NotifierService } from 'angular-notifier';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit {
   
   user : User;
   myForm : FormGroup;
-  constructor(private fb: FormBuilder , private Us: UserServiceService, private router: Router) {
+  private notifier: NotifierService;
+
+
+  constructor(private fb: FormBuilder , private Us: UserServiceService, private router: Router,notifier: NotifierService) {
+    this.notifier = notifier;
     this.myForm = new FormGroup({
       password : new FormControl('',[Validators.required,Validators.pattern(".{8,}")]),
       login : new FormControl('',Validators.required)
@@ -32,14 +37,14 @@ get passwordUser() { return this.myForm.get('password');}
   this.Us.login(this.loginUser.value,this.passwordUser.value).pipe(first()).subscribe(
     res => {
       this.user=res;
-      console.log(this.user)
-      if (Object.keys(this.user).length > 0) {
+      console.log
+      if (this.myForm.valid) {
         localStorage.setItem('CurrentUser', JSON.stringify(this.user));
-    alert('User Logged in!');
+        this.notifier.notify( 'success', "User Logged in Succefully" );
     this.router.navigateByUrl('/');
       }
       else {
-        alert('Check your field!');
+        this.notifier.notify( 'error', "Check your field!" );
       }
     },
     error => {

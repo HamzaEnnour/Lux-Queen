@@ -1,8 +1,9 @@
 import { User } from './../model/user';
 import { Router } from '@angular/router';
-import { UserServiceService } from './../service/user-service.service';
+import { UserServiceService } from '../shared/user-service.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-profil',
@@ -18,8 +19,11 @@ export class ProfilComponent implements OnInit {
   email:string;
   myForm : FormGroup;
   tempId : number;
+  private notifier: NotifierService;
 
-  constructor(private fb: FormBuilder , private Us: UserServiceService, private router: Router) { }
+  constructor(private fb: FormBuilder , private Us: UserServiceService, private router: Router,notifier: NotifierService) {
+    this.notifier = notifier;
+   }
 
   ngOnInit(): void {
     var Tempuser = JSON.parse(localStorage.getItem('CurrentUser'));
@@ -39,7 +43,7 @@ export class ProfilComponent implements OnInit {
       email : new FormControl('',[Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])
     })
   }
-  get loginUser() { return this.myForm.get('login');}
+get loginUser() { return this.myForm.get('login');}
 get imageUser() { return this.myForm.get('image');}
 get passwordUser() { return this.myForm.get('password');}
 get RpasswordUser() { return this.myForm.get('Rpassword');}
@@ -49,15 +53,24 @@ get emailUser() { return this.myForm.get('email');}
 updateUser()
 { 
   var userr = new User();
-  userr.setFullName(this.fullnameUser.value);
-  userr.setLogin(this.loginUser.value);
+  userr.setFullName(this.fullname);
+  userr.setLogin(this.login);
   userr.setImage(this.filename)
-  userr.setEmail(this.emailUser.value);
-  userr.setPassword(this.passwordUser.value);
+  userr.setEmail(this.email);
+  userr.setPassword(this.password);
+  if(this.myForm.valid){
+    console.log(userr)
+    console.log(this.tempId )
   this.Us.updateUser(this.tempId, userr).subscribe(res => {
-alert('User Updated')
-this.router.navigateByUrl('/acceuil');
-    });
+      localStorage.removeItem('CurrentUser');
+      localStorage.setItem('CurrentUser', JSON.stringify(userr));
+      this.notifier.notify( 'success', "User Updated Succefully" );
+      this.router.navigateByUrl('/');
+}
+);}
+else
+this.notifier.notify( 'error', "Check your field!" );
+    
 }
 
 UpdateImage() {

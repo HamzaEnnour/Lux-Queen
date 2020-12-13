@@ -32,6 +32,9 @@ export class ProductService {
   findProductbyId(id: number): Observable<Product> {
     return this.http.get<Product>(this.ProductsUrl + '/' + id);
   }
+  findProductbyName(name: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.ProductsUrl + '/?name_like=' + name);
+  }
   getProducts(): Observable<any> {
     return this.http.get(this.ProductsUrl, this.httpOptions).pipe(
       map(this.extractData),

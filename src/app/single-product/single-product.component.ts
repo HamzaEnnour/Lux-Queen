@@ -1,15 +1,15 @@
-import { CartService } from './../service/cart.service';
+import { CartService } from '../shared/cart.service';
 import { Product } from './../model/product';
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../service/product.service';
+import { ProductService } from '../shared/product.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as $ from 'jquery';
 import { User } from '../model/user';
 import { Comment } from '../model/comment';
-import { CommentService } from '../service/comment.service';
+import { CommentService } from '../shared/comment.service';
 import { Cart } from '../model/cart';
-import { WishlistService } from '../service/wishlist.service';
+import { WishlistService } from '../shared/wishlist.service';
 import { Wishlist } from '../model/wishlist';
 
 @Component({

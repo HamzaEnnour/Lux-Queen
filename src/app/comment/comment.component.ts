@@ -1,7 +1,7 @@
 import { Product } from './../model/product';
-import { CommentService } from './../service/comment.service';
+import { CommentService } from '../shared/comment.service';
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { ProductService } from '../service/product.service';
+import { ProductService } from '../shared/product.service';
 import { User } from '../model/user';
 import { Comment } from '../model/comment';
 import { EventEmitter } from 'protractor';
@@ -18,6 +18,7 @@ export class CommentComponent implements OnInit {
   quan:string;
   img:string;
   idUser:number;
+  Today = new Date();
 @Input() Com : Comment[];
 @Input() selected:number;
 

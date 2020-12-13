@@ -1,3 +1,4 @@
+import { WeatherComponent } from './weather/weather.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
 import { SingleProductComponent } from './single-product/single-product.component';
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'weather', component: WeatherComponent },
+  { path: 'product/:name', component: ProductComponent },
   { path: 'cart', component: CartComponent },
   { path: 'wishlist', component: WishlistComponent },
   { path: 'single-product/:id', component: SingleProductComponent },

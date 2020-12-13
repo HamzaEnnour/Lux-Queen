@@ -1,16 +1,5 @@
 
-<div class="col-12 col-md-4">
-    <!-- Header Advance Search Start -->
-    <div class="header-advance-search">
-        
-        <form action="#">
-            <div class="input"><input type="text" placeholder="Search your product"></div>
-            
-            <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
-        </form>
-        
-    </div><!-- Header Advance Search End -->
-</div>
+<app-navbar (SearchAction)="DoSearch()"></app-navbar>
 <!-- Product Section Start -->
 <div class="product-section section mt-90 mb-90">
     <div class="container">
@@ -30,23 +19,12 @@
                                 <a href="#" data-target="list"><i class="fa fa-list"></i></a>
                             </div>
 
-                            <!-- Product Showing -->
-                            <div class="product-showing">
-                                <p>Showing</p>
-                                <select name="showing" class="nice-select">
-                                    <option value="1">8</option>
-                                    <option value="2">12</option>
-                                    <option value="3">16</option>
-                                    <option value="4">20</option>
-                                    <option value="5">24</option>
-                                </select>
-                            </div>
+                           
 
                             <!-- Product Short -->
                             <div class="product-short">
                                 <p>Short by</p>
                                 <select name="sortby" class="nice-select">
-                                    <option value="trending">Trending items</option>
                                     <option value="price-asc">Price: low to high</option>
                                     <option value="price-desc">Price: high to low</option>
                                 </select>
@@ -54,7 +32,7 @@
 
                             <!-- Product Pages -->
                             <div class="product-pages">
-                                <p>Pages 1 of 25</p>
+                                <p>Pages 1 of {{n}}</p>
                             </div>
 
                         </div><!-- Shop Top Bar End -->
@@ -63,10 +41,10 @@
                 </div>
                 
                 <!-- Shop Product Wrap Start -->
-                <!-- Shop Product Wrap Start -->
+                <!-- Shop Product  | grdFilter: {name: search,description:search,price: search}  Wrap Start -->
                 <div class="shop-product-wrap grid row">
 
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10" *ngFor="let prod of product">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10" *ngFor="let prod of (product | grdFilter: {name: search,description:search,price: search}   |slice:startIndex:endIndex) ">
                         <!-- Product Start -->
                         <div class="ee-product">
 
@@ -126,15 +104,9 @@
                     <div class="col">
 
                         <ul class="pagination">
-                            <li><a href="#"><i class="fa fa-angle-left"></i>Back</a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li> - - - - - </li>
-                            <li><a href="#">18</a></li>
-                            <li><a href="#">18</a></li>
-                            <li><a href="#">20</a></li>
-                            <li><a href="#">Next<i class="fa fa-angle-right"></i></a></li>
+                            <li><a><i class="fa fa-angle-left"></i></a></li>
+                            <li *ngFor="let prod of getArrayNumber(product.length);let inn =index" class="active" ><a (click)="updateIndex(inn)">{{inn+1}}</a></li> 
+                            <li><a ><i class="fa fa-angle-right"></i></a></li>
                         </ul>
                         
                     </div>
@@ -145,3 +117,4 @@
         </div>
     </div>
 </div><!-- Feature Product Section End -->
+

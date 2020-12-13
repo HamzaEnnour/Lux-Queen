@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <!-- Register Section Start -->
 <div class="register-section section mt-90 mb-90">
     <div class="container">
@@ -8,7 +9,7 @@
             <div class="col-md-6 col-12 d-flex">
                 <div class="ee-register">
                     
-                    <h3>We will need for your registration</h3>
+                    <h3>We will need for your update profil</h3>
                     
                     <!-- Register Form -->
                     
@@ -16,7 +17,7 @@
                             <div class="col-12 mb-30"><input type="text" name="fullname" formControlName="fullname" [(ngModel)]="fullname"  placeholder="Your Full Name here"></div>
                             <div class="col-12 mb-30"> <div *ngIf="fullnameUser.invalid" [style.color]="'red'">Full Name is required.</div></div>
                             <div class="col-12 mb-30"><input type="email" email name="email" formControlName="email" [(ngModel)]="email" placeholder="Your Email here"></div>
-                            <div class="col-12 mb-30"> <div *ngIf="emailUser.invalid" [style.color]="'red'">Email is required.</div></div>
+                            <div class="col-12 mb-30"> <div *ngIf="emailUser.invalid" [style.color]="'red'">Choose a good format for Email field.</div></div>
                             <div class="col-12 mb-30"><input type="text" name="login" formControlName="login" [(ngModel)]="login"  placeholder="Your Login here"></div>
                             <div class="col-12 mb-30"> <div *ngIf="loginUser.invalid" [style.color]="'red'">Login is required.</div></div>
                             <div class="col-12 mb-30"><input type="password" name="password" [(ngModel)]="password" formControlName="password" placeholder="Enter Password"></div>
@@ -40,7 +41,7 @@
             <div class="col-md-5 col-12 d-flex">
                 
                 <div class="ee-account-image">
-                    <h3>Upload your Image</h3>
+                    <h3>Update your Image</h3>
                     
                   <img src="../../assets/Images/{{filename}}" alt="Account Image Placeholder" class="image-placeholder">
                     
@@ -60,3 +61,5 @@
     </form>
     </div>
 </div><!-- Register Section End -->
+<notifier-container></notifier-container>
+
