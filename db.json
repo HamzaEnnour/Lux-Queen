@@ -3,164 +3,110 @@
     {
       "full_name": "Hamza Ennour ",
       "login": "hamza",
-      "image": "hamza.png",
+      "image": "avatar1.png",
       "email": "hamza.ennour@esprit.tn",
       "password": "12345678",
       "id": 1
     },
     {
-      "full_name": "Sofien Agoubi",
-      "login": "sofien",
-      "image": "hamza.png",
-      "email": "sofien.argoubi@esprit.tn",
+      "full_name": "mohamed",
+      "login": "mohamed",
+      "image": "avatar2.png",
+      "email": "mohamed@esprit.tn",
       "password": "12345678",
       "id": 2
     }
   ],
   "Products": [
     {
-      "name": "test1",
-      "description": "description",
-      "image": "product-1.png",
-      "price": 50,
+      "name": "Serum Foundation",
+      "description": "LUMINOUS SERUM est un fond de teint fluide à la texture sérum imperceptible et au fini peau nue inédit. Il fusionne avec la peau et la laisse parfaite, éclatante, lumineuse et sans effet matière: l’équilibre parfait entre pigments, protection et minéraux nourrissants sans effet gras!",
+      "image": "serum.png",
+      "price": 51,
+      "categorie": "Makeup",
       "quantity": 5,
       "id": 1
     },
     {
-      "name": "test2",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "TUNAS HUILE DE PEPINS DE FIGUE DE BARBERIE",
+      "description": "L'huile de pépin de figue de barbarie FARMASI pénètre facilement et est bien absorbée par la peau. Sa couleur est jaune tirant sur le vert pâle. L'odeur est naturelle, agréable, assez végétale. L'aspect est visqueux mais sa texture est légère. Convient à tous les types de peau. Aucuns colorants, ni conservateurs.",
+      "image": "tunas1.jpg",
+      "price": 54,
+      "categorie": "Soins",
       "quantity": 0,
       "id": 2
     },
     {
-      "name": "test3",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "RUYA EDP FEMME",
+      "description": "Floral & Oriental Notes de tête: Bergamote, Fruits rouges, pomme Notes de coeur: Sümbülteber, Jasmine, Müge Blossom Notes de pied: bois de santal, Papillon de nuit, Tonka, cacao, ambre",
+      "image": "ruya-edp-femme.jpg",
+      "price": 93,
+      "categorie": "Parfum",
       "quantity": 20,
       "id": 3
     },
     {
-      "name": "test4",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "COFFRET ABOUT LOVERS",
+      "description": "EDP HOMME CHARM 75ML / EDP FEMME CHEER 50 ML",
+      "image": "7701710.jpg",
+      "price": 120,
+      "categorie": "Packs",
       "quantity": 0,
       "id": 4
     },
     {
-      "name": "test5",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "FARMASI MULTI PURPOSE BAG",
+      "description": "N/A",
+      "image": "hhh55.jpg",
+      "price": 3,
+      "categorie": "Accessoire",
       "quantity": 30,
       "id": 5
     },
     {
-      "name": "test6",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "Inkliner Noir",
+      "description": "Lignes égales grâce à sa pointe extra douce Matière dense et opaque Lignes fines et épaisses et cils jusqu’aux points Formule avec une durabilité de 24 heures",
+      "image": "inkliner.jpg",
+      "price": 20,
+      "categorie": "Makeup",
       "quantity": 0,
       "id": 6
     },
     {
-      "name": "test7",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "Matte Lipstick",
+      "description": "Facile à appliquer formule douce fournit un look mat soyeux à vos lèvres. En raison de ses composés actifs spéciaux, le rouge à lèvres hydrate et protège les lèvres sensibles. Un fini mat est garanti !",
+      "image": "matte.jpg",
+      "price": 25,
+      "categorie": "Makeup",
       "quantity": 40,
       "id": 7
     },
     {
-      "name": "test8",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "Crème Mains NOIX DE COCO & VANILLE",
+      "description": "Crème pour les mains noix de coco & vanille La crème pour les mains hydratante parfumée a une texture non grasse qui s’absorbe rapidement par la peau. Enrichie en noix de coco et vanille ,elle protège et nourrit vos mains en les laissant soyeuses, hydratées et délicatement parfumées. Convient à tous Types de peaux",
+      "image": "noix.jpg",
+      "price": 10,
+      "categorie": "Soins",
       "quantity": 0,
       "id": 8
     },
     {
-      "name": "test9",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "SIGNOR ONYX",
+      "description": "Note de tête: Bergamote, Poivre noir",
+      "image": "signor-onyx.png",
+      "price": 47,
+      "categorie": "Parfum",
       "quantity": 8,
       "id": 9
     },
     {
-      "name": "test10",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
+      "name": "DR C.TUNA Gel Antibactérien",
+      "description": "Protection Maximale Jusqu´à 12 heures, Effet rafraîchissant. Le gel désinfectant pour les mains nettoie et hydrate en quelques secondes grâce à sa formule efficace et sa teneur en glycérine végétale. Il offre une utilisation pratique et quand vous en avez besoin.",
+      "image": "gel-pour-les-mains-.jpg",
+      "price": 2,
+      "categorie": "Accessoire",
       "quantity": 0,
       "id": 10
-    },
-    {
-      "name": "test11",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 4,
-      "id": 11
-    },
-    {
-      "name": "test12",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 30,
-      "id": 12
-    },
-    {
-      "name": "test13",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 0,
-      "id": 13
-    },
-    {
-      "name": "test14",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 0,
-      "id": 14
-    },
-    {
-      "name": "test15",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 10,
-      "id": 15
-    },
-    {
-      "name": "test16",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 0,
-      "id": 16
-    },
-    {
-      "name": "test17",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 0,
-      "id": 17
-    },
-    {
-      "name": "test18",
-      "description": "description",
-      "image": "product-2.png",
-      "price": 70,
-      "quantity": 0,
-      "id": 18
     }
   ],
   "Comment": [
@@ -214,7 +160,7 @@
       },
       "prod": {
         "id": 2,
-        "name": "test",
+        "name": "product",
         "quantity": 0,
         "price": 70,
         "description": "description"
@@ -224,26 +170,71 @@
   ],
   "Cart": [
     {
-      "total": 100,
-      "quantity": 2,
+      "total": 250,
+      "quantity": 1,
       "user": {
         "id": 1,
-        "full_name": "Hamza Ennour",
+        "full_name": "Hamza Ennour ",
         "login": "hamza",
         "image": "hamza.png",
         "email": "hamza.ennour@esprit.tn",
         "password": "12345678"
       },
       "prod": {
-        "id": 1,
-        "name": "Hamza Ennour",
+        "name": "product1",
+        "description": "description",
         "image": "product-1.png",
-        "quantity": 2,
         "price": 50,
-        "description": "description"
+        "categorie": "Makeup",
+        "quantity": 5,
+        "id": 1
       },
       "id": 1
+    },
+    {
+      "total": 250,
+      "quantity": 1,
+      "user": {
+        "id": 1,
+        "full_name": "Hamza Ennour ",
+        "login": "hamza",
+        "image": "hamza.png",
+        "email": "hamza.ennour@esprit.tn",
+        "password": "12345678"
+      },
+      "prod": {
+        "name": "product1",
+        "description": "description",
+        "image": "product-1.png",
+        "price": 50,
+        "categorie": "Makeup",
+        "quantity": 5,
+        "id": 1
+      },
+      "id": 2
     }
   ],
-  "wishlist": []
+  "wishlist": [
+    {
+      "quantity": 1,
+      "user": {
+        "id": 1,
+        "full_name": "Hamza Ennour ",
+        "login": "hamza",
+        "image": "hamza.png",
+        "email": "hamza.ennour@esprit.tn",
+        "password": "12345678"
+      },
+      "prod": {
+        "name": "product1",
+        "description": "description",
+        "image": "product-1.png",
+        "price": 50,
+        "categorie": "Makeup",
+        "quantity": 5,
+        "id": 1
+      },
+      "id": 15
+    }
+  ]
 }

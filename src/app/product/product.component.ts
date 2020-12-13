@@ -20,6 +20,8 @@ import { NotifierService } from 'angular-notifier';
 })
 export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked   {
   product: Product[];
+  tempwish : boolean= false;
+  datatemp : Wishlist[]
   startIndex = 0;
   endIndex = 4;
   n:number;
@@ -35,7 +37,7 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
   ngAfterViewInit(): void {
     this.child.changes.subscribe((comps: QueryList<NavbarComponent>) =>
     {
-      console.log(comps.first.ss)
+     // console.log(comps.first.ss)
     });
   }
 
@@ -44,21 +46,14 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
    }
 
   ngOnInit(): void {
-
-    this.customerData = [
-      { name: "Anil kumar", Age: 34, blog: "https://code-view.com" },
-      { name: "Sunil Kumar Singh", Age: 28, blog: "https://code-sample.xyz" },
-      { name: "Sushil Singh", Age: 24, blog: "https://code-sample.com" },
-      { name: "Aradhya Singh", Age: 5, blog: "https://code-sample.com" },
-      { name: "Reena Singh", Age: 28, blog: "https://code-sample.com" },
-      { name: "Alok Singh", Age: 35, blog: "https://code-sample.com" },
-      { name: "Dilip Singh", Age: 34, blog: "https://code-sample.com" }
-    ];
-
+    this.Ws.getWishlists().subscribe((data: Wishlist[]) =>
+    {
+      this.datatemp=data;
+    });
+    var Tempuser = JSON.parse(localStorage.getItem('CurrentUser'));
     this.Ps.getProducts().subscribe(
       (data: any[]) => {
         this.product = data;
-        console.log(this.product);
       });
   }
   getArrayNumber(length: number) {
@@ -95,6 +90,9 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
     c.setQuantity(1)
     c.setUser(user)
     c.setProd(p)
+    setTimeout(()=>{                        
+      this.notifier.notify( 'success', "Product added successfully to your Cart list !!" );
+ }, 500);
     this.Cs.addCart(c).subscribe(x => this.router.navigateByUrl('/cart'));
     }
     else
@@ -107,39 +105,61 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
   }
 
   addToWishlist(p: Product) {
-    var Tempuser = JSON.parse(localStorage.getItem('CurrentUser'));
-    var user = new User();
-    if(Tempuser !=null)
-    {
-      user.setId(Tempuser[0].id);
-      user.setFullName(Tempuser[0].full_name);
-      user.setLogin(Tempuser[0].login);
-      user.setImage(Tempuser[0].image)
-      user.setEmail(Tempuser[0].email);
-      user.setPassword(Tempuser[0].password);
-      /////
-      var w = new Wishlist();
-      w.setQuantity(1)
-      w.setUser(user)
-      w.setProd(p)
-    this.Ws.addWishlist(w).subscribe(x => this.router.navigateByUrl('/wishlist'));
-  }
-    else
-    {
-      setTimeout(()=>{                      
-        this.notifier.notify( 'error', "Please Log in before you add to your wishlist !!" );
-   }, 500);
-    this.router.navigateByUrl('/login')}
+
+    //findWishlistbyUserId(Tempuser[0].id,p.id
+
+      console.log(this.datatemp)
+      var Tempuser = JSON.parse(localStorage.getItem('CurrentUser'));
+      var user = new User();
+      console.log("User : "+Tempuser[0].id)
+      console.log("Prod : "+p.id)
+      this.datatemp.forEach(e => {
+        if(e.prod.id==p.id&&e.user.id==Tempuser[0].id)
+        {
+          console.log(this.datatemp)
+          this.notifier.notify( 'error', "Your Product already added to your WishList !!" );
+          this.tempwish=true;
+        }
+        else 
+        {
+          console.log("noooooo")
+          if(Tempuser !=null  )
+          {
+            user.setId(Tempuser[0].id);
+            user.setFullName(Tempuser[0].full_name);
+            user.setLogin(Tempuser[0].login);
+            user.setImage(Tempuser[0].image)
+            user.setEmail(Tempuser[0].email);
+            user.setPassword(Tempuser[0].password);
+            /////
+            var w = new Wishlist();
+            w.setQuantity(1)
+            w.setUser(user)
+            w.setProd(p)
+            this.tempwish=false;
+            if(!this.tempwish){
+         console.log("hi to")
+          this.Ws.addWishlist(w).subscribe(x => this.router.navigateByUrl('/wishlist')); 
+        }
+        }
+          else
+          {
+            setTimeout(()=>{                      
+              this.notifier.notify( 'error', "Please Log in before you add to your wishlist !!" );
+         }, 500);
+          this.router.navigateByUrl('/login')
+        }
+        }
+      })
+
+   
+    
   }
 
   DoSearch() {
     console.log(this.search)
     if (this.search != '') {
-     /* this.Ps.findProductbyName(this.search).subscribe(
-        (data: Product[]) => {
-          this.product = data;
-        });*/
-        this.Ps.getProducts().subscribe(
+        this.Ps.findProductbyAllCritere(this.search).subscribe(
           (data: Product[]) => {
             this.product = data;
           });
@@ -147,6 +167,33 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
       this.Ps.getProducts().subscribe(
         (data: Product[]) => {
           this.product = data;
+        });
+    }
+  }
+
+  Filtered(e){
+    var t=e.target.options[e.target.options.selectedIndex].value;
+    if(t=='price-asc')
+    {
+      this.Ps.SortProductsByPrice('asc').subscribe(
+        (data: Product[]) => {
+          this.product = data;
+          console.log(this.product)
+        }); 
+    }
+    else if(t=='price-desc'){
+      this.Ps.SortProductsByPrice('desc').subscribe(
+        (data: Product[]) => {
+          this.product = data;
+          console.log(this.product)
+        }); 
+    }
+    else if(t=='all-items')
+    {
+      this.Ps.getProducts().subscribe(
+        (data: Product[]) => {
+          this.product = data;
+          console.log(this.product)
         });
     }
   }

@@ -25,10 +25,11 @@ export class NavbarComponent implements OnInit {
   constructor(private Us: UserServiceService,private Cs : CartService,private Ws: WishlistService,private router: Router,private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if(this.Tempuser!=null){
     this.Cs.getCarts().subscribe(
       (data: Cart[]) => {
         this.cart = data.filter(x=>x.user.id==this.Tempuser[0].id);
-        if(data.length==0)
+        if(data==null)
           this.cartnumber=0;
 
         this.cartnumber=data.length
@@ -36,11 +37,12 @@ export class NavbarComponent implements OnInit {
       this.Ws.getWishlists().subscribe(
         (data: Wishlist[]) => {
           this.wishlist = data.filter(x=>x.user.id==this.Tempuser[0].id);
-          if(data.length==0)
+          if(data==null)
           this.wishnumber=0;
 
           this.wishnumber=data.length
         });
+      }
   }
   
   isLogged(): boolean {
@@ -50,9 +52,7 @@ export class NavbarComponent implements OnInit {
    this.Us.logout();
  }
  DoSearch() {
-  console.log("1 "+this.ss)
     this.SearchAction.emit(this.ss);
-   // this.router.navigateByUrl('/product/'+this.ss);
  }
 
 }

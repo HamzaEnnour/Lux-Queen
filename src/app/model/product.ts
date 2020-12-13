@@ -4,6 +4,7 @@ export class Product {
     description:string;
     image:string;
     price:number;
+    categorie:string;
     quantity:number;
     setId(id:number){
         this.id=id;
@@ -13,6 +14,9 @@ export class Product {
     }
     setDescription(des: string){
         this.description=des;
+    }
+    setCategorie(cat : string){
+        this.categorie=cat;
     }
     setImage(im: string){
         this.image=im;

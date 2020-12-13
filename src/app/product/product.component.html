@@ -23,11 +23,14 @@
 
                             <!-- Product Short -->
                             <div class="product-short">
+                                <div>
                                 <p>Short by</p>
-                                <select name="sortby" class="nice-select">
+                                <select name="sortby" (change)="Filtered($event)" class="nice-select">
+                                    <option value="all-items">All Items</option>
                                     <option value="price-asc">Price: low to high</option>
                                     <option value="price-desc">Price: high to low</option>
                                 </select>
+                            </div>
                             </div>
 
                             <!-- Product Pages -->
@@ -44,7 +47,7 @@
                 <!-- Shop Product  | grdFilter: {name: search,description:search,price: search}  Wrap Start -->
                 <div class="shop-product-wrap grid row">
 
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10" *ngFor="let prod of (product | grdFilter: {name: search,description:search,price: search}   |slice:startIndex:endIndex) ">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10" *ngFor="let prod of (product | grdFilter: {name: search,description:search,price: search,categorie:search}   |slice:startIndex:endIndex) ">
                         <!-- Product Start -->
                         <div class="ee-product">
 
@@ -70,7 +73,7 @@
                                 <!-- Category & Title -->
                                 <div class="category-title">
 
-                                    <a href="#" class="cat">Beauté</a>
+                                    <a href="#" class="cat">{{prod.categorie}}</a>
                                     <h5 class="title"><a [routerLink]="['/single-product',prod.id]">{{prod.name}}</a></h5>
 
                                 </div>

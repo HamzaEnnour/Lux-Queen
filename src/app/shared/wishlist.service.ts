@@ -36,8 +36,10 @@ export class WishlistService {
   findWishlistbyId(id: number): Observable<Wishlist[]> {
     return this.http.get<Wishlist[]>(this.WishlistUrl + '/' + id);
   }
+  findWishlistbyUserId(id: number,idd:number): Observable<Wishlist[]> {
+    return this.http.get<Wishlist[]>(this.WishlistUrl + '/?user.id='+id+'&prod.id'+idd);
+  }
   addWishlist(user: Wishlist): Observable<Wishlist> {
-    console.log(user);
     return this.http.post<Wishlist>(this.WishlistUrl, user, this.httpOptions);
   }
   deleteWishlist(id: number): Observable<any> {
