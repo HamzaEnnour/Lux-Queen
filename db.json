@@ -7,14 +7,6 @@
       "email": "hamza.ennour@esprit.tn",
       "password": "12345678",
       "id": 1
-    },
-    {
-      "full_name": "mohamed",
-      "login": "mohamed",
-      "image": "avatar2.png",
-      "email": "mohamed@esprit.tn",
-      "password": "12345678",
-      "id": 2
     }
   ],
   "Products": [
@@ -109,132 +101,29 @@
       "id": 10
     }
   ],
-  "Comment": [
-    {
-      "description": "qsdqsdqsd",
-      "user": {
-        "id": 1,
-        "full_name": "Hamza Ennour",
-        "login": "hamza",
-        "image": "hamza.png",
-        "email": "hamza.ennour@esprit.tn",
-        "password": "12345678"
-      },
-      "prod": {
-        "id": 1,
-        "name": "Hamza Ennour",
-        "quantity": 5,
-        "price": 50,
-        "description": "description"
-      },
-      "id": 1
-    },
-    {
-      "description": "qsdsqd",
-      "user": {
-        "full_name": "Sofien Agoubi",
-        "login": "sofien",
-        "image": "hamza.png",
-        "email": "sofien.argoubi@esprit.tn",
-        "password": "12345678",
-        "id": 2
-      },
-      "prod": {
-        "id": 1,
-        "name": "Hamza Ennour",
-        "quantity": 5,
-        "price": 50,
-        "description": "description"
-      },
-      "id": 2
-    },
-    {
-      "description": "aa",
-      "user": {
-        "id": 1,
-        "full_name": "Hamza Ennour",
-        "login": "hamza",
-        "image": "hamza.png",
-        "email": "hamza.ennour@esprit.tn",
-        "password": "12345678"
-      },
-      "prod": {
-        "id": 2,
-        "name": "product",
-        "quantity": 0,
-        "price": 70,
-        "description": "description"
-      },
-      "id": 3
-    }
-  ],
-  "Cart": [
-    {
-      "total": 250,
-      "quantity": 1,
-      "user": {
-        "id": 1,
-        "full_name": "Hamza Ennour ",
-        "login": "hamza",
-        "image": "hamza.png",
-        "email": "hamza.ennour@esprit.tn",
-        "password": "12345678"
-      },
-      "prod": {
-        "name": "product1",
-        "description": "description",
-        "image": "product-1.png",
-        "price": 50,
-        "categorie": "Makeup",
-        "quantity": 5,
-        "id": 1
-      },
-      "id": 1
-    },
-    {
-      "total": 250,
-      "quantity": 1,
-      "user": {
-        "id": 1,
-        "full_name": "Hamza Ennour ",
-        "login": "hamza",
-        "image": "hamza.png",
-        "email": "hamza.ennour@esprit.tn",
-        "password": "12345678"
-      },
-      "prod": {
-        "name": "product1",
-        "description": "description",
-        "image": "product-1.png",
-        "price": 50,
-        "categorie": "Makeup",
-        "quantity": 5,
-        "id": 1
-      },
-      "id": 2
-    }
-  ],
+  "Comment": [],
+  "Cart": [],
   "wishlist": [
     {
-      "quantity": 1,
-      "user": {
-        "id": 1,
-        "full_name": "Hamza Ennour ",
-        "login": "hamza",
-        "image": "hamza.png",
-        "email": "hamza.ennour@esprit.tn",
-        "password": "12345678"
-      },
+      "id": 1,
       "prod": {
-        "name": "product1",
-        "description": "description",
-        "image": "product-1.png",
-        "price": 50,
+        "name": "Serum Foundation",
+        "description": "LUMINOUS SERUM est un fond de teint fluide à la texture sérum imperceptible et au fini peau nue inédit. Il fusionne avec la peau et la laisse parfaite, éclatante, lumineuse et sans effet matière: l’équilibre parfait entre pigments, protection et minéraux nourrissants sans effet gras!",
+        "image": "serum.png",
+        "price": 51,
         "categorie": "Makeup",
         "quantity": 5,
         "id": 1
       },
-      "id": 15
+      "user": {
+        "full_name": "Hamza Ennour ",
+        "login": "hamza",
+        "image": "avatar1.png",
+        "email": "hamza.ennour@esprit.tn",
+        "password": "12345678",
+        "id": 1
+      },
+      "quantity": 3
     }
   ]
 }
