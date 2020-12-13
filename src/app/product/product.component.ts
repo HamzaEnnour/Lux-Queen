@@ -11,6 +11,7 @@ import { Wishlist } from '../model/wishlist';
 import { AfterViewInit } from '@angular/core';
 import { QueryList } from '@angular/core';
 import { ViewChildren } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-product',
@@ -24,6 +25,7 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
   n:number;
   search: string;
   customerData:any
+  private notifier: NotifierService;
   public searchText: string;
   
   @ViewChildren(NavbarComponent) child: QueryList<NavbarComponent>;
@@ -37,7 +39,9 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
     });
   }
 
-  constructor(private Ps: ProductService, private Cs: CartService, private Ws: WishlistService, private router: Router) { }
+  constructor(private Ps: ProductService, private Cs: CartService, private Ws: WishlistService, private router: Router,notifier: NotifierService) {
+    this.notifier = notifier;
+   }
 
   ngOnInit(): void {
 
@@ -77,6 +81,8 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
   addToCart(p: Product) {
     var Tempuser = JSON.parse(localStorage.getItem('CurrentUser'));
     var user = new User();
+    if(Tempuser !=null)
+    {
     user.setId(Tempuser[0].id);
     user.setFullName(Tempuser[0].full_name);
     user.setLogin(Tempuser[0].login);
@@ -90,23 +96,40 @@ export class ProductComponent implements OnInit, AfterViewInit,AfterViewChecked 
     c.setUser(user)
     c.setProd(p)
     this.Cs.addCart(c).subscribe(x => this.router.navigateByUrl('/cart'));
+    }
+    else
+    {
+      setTimeout(()=>{                        
+        this.notifier.notify( 'error', "Please Log in before you add to your cart !!" );
+   }, 500);
+    this.router.navigateByUrl('/login')
+    }
   }
 
   addToWishlist(p: Product) {
     var Tempuser = JSON.parse(localStorage.getItem('CurrentUser'));
     var user = new User();
-    user.setId(Tempuser[0].id);
-    user.setFullName(Tempuser[0].full_name);
-    user.setLogin(Tempuser[0].login);
-    user.setImage(Tempuser[0].image)
-    user.setEmail(Tempuser[0].email);
-    user.setPassword(Tempuser[0].password);
-    /////
-    var w = new Wishlist();
-    w.setQuantity(1)
-    w.setUser(user)
-    w.setProd(p)
+    if(Tempuser !=null)
+    {
+      user.setId(Tempuser[0].id);
+      user.setFullName(Tempuser[0].full_name);
+      user.setLogin(Tempuser[0].login);
+      user.setImage(Tempuser[0].image)
+      user.setEmail(Tempuser[0].email);
+      user.setPassword(Tempuser[0].password);
+      /////
+      var w = new Wishlist();
+      w.setQuantity(1)
+      w.setUser(user)
+      w.setProd(p)
     this.Ws.addWishlist(w).subscribe(x => this.router.navigateByUrl('/wishlist'));
+  }
+    else
+    {
+      setTimeout(()=>{                      
+        this.notifier.notify( 'error', "Please Log in before you add to your wishlist !!" );
+   }, 500);
+    this.router.navigateByUrl('/login')}
   }
 
   DoSearch() {
